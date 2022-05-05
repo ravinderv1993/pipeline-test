@@ -1,22 +1,28 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - master
 
 pool:
   vmImage: ubuntu-latest
 
-steps:
+stages:
+  - stage: Build
+    jobs:
+      - job: "test"
+        steps:
+          - bash: |
+              FOO="some value"
+            name: mystep
 
-  # Sets FOO to "some value", then mark it as output variable
-  - bash: |
-      FOO="some value"
-      echo "##vso[task.setvariable variable=FOO;isOutput=true]$FOO"
-    name: mystep
+          - bash: |
+              echo "$(mystep.FOO)"
+            name: value
 
-  # Show output variable in the same job
-  - bash: |
-      echo "$(mystep.FOO)"
+
+
+
+
+
+
+
+
+
