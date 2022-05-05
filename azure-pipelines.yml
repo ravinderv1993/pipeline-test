@@ -15,11 +15,14 @@ steps:
 
 - bash: |
     TEST="abcd"
+    T1="zx"
   displayName: 'This is my variable'
 
 - bash: |
     echo "$(TEST)"
     echo "hello"
     echo "$TEST"
+    echo "t1"
+    echo "$T1"
   displayName: "print my variable"
   
