@@ -23,6 +23,6 @@ steps:
     echo "hello"
     echo "$TEST"
     echo "t1"
-    echo "$T1"
+    echo "$(T1)"
   displayName: "print my variable"
   
