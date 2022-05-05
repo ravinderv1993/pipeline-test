@@ -20,6 +20,6 @@ steps:
   displayName: 'Run a multi-line script'
 
 - script: |
-    echo "$var_test"
+    echo "$(var_test)"
   displayName: "print var_test"
   
