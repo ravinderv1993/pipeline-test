@@ -10,19 +10,13 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 
-- bash: |
-    TEST="abcd"
-    T1="zx"
-  displayName: 'This is my variable'
+  # Sets FOO to "some value", then mark it as output variable
+  - bash: |
+      FOO="some value"
+      echo "##vso[task.setvariable variable=FOO;isOutput=true]$FOO"
+    name: mystep
 
-- bash: |
-    echo "$(TEST)"
-    echo "hello"
-    echo "$TEST"
-    echo "t1"
-    echo "$(T1)"
-  displayName: "print my variable"
-  
+  # Show output variable in the same job
+  - bash: |
+      echo "$(mystep.FOO)"
