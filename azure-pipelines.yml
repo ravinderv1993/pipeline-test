@@ -4,18 +4,15 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-stages:
-  - stage: Build
-    jobs:
-      - job: "test"
-        steps:
-          - bash: |
-              FOO="some value"
-            name: mystep
 
-          - bash: |
-              echo "$(mystep.FOO)"
-            name: value
+steps:
+  - bash: |
+      FOO="some value"
+    name: mystep
+
+  - bash: |
+      echo "$(mystep.FOO)"
+    name: value
 
 
 
