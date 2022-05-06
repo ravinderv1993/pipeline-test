@@ -50,3 +50,15 @@ stages:
           - bash: |
               echo "$FOO"
 
+          - task: AzureKeyVault@2
+            inputs:
+              azureSubscription: 'dailylearn-non-prod (45fdc4e4-fd56-47ea-92ca-063efaaa265b)'
+              KeyVaultName: 'dl-non-prod-vault'
+              SecretsFilter: '*'
+              RunAsPreJob: false
+
+          - bash: |
+              echo "$(deploykey)" > abc.txt
+              cat abc.txt
+              echo `pwd`
+
