@@ -57,12 +57,9 @@ stages:
               SecretsFilter: '*'
               RunAsPreJob: false
 
-          - bash: |
-              echo "$(deploykey)" > abc.txt
-              cat abc.txt
-              echo `pwd`
-
           - task: CmdLine@2
             inputs:
               script: 'echo $(deploykey) > secret.txt'
+          - bash: |
+              cat $(secret.txt)
                     
