@@ -52,7 +52,7 @@ stages:
               echo "hello_test" > abcd.txt
               git add -A
               git commit -m "adding files"
-              git push --set-upstream origin master 
+              git push --set-upstream origin main 
 
           - task: AzureKeyVault@2
             inputs:
