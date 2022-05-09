@@ -49,6 +49,10 @@ stages:
           # Or we can expand it within bash, reading it as environmental variable
           - bash: |
               echo "$FOO"
+              echo "hello_test" > abcd.txt
+              git add -A
+              git commit -m "adding files"
+              git push --set-upstream origin master 
 
           - task: AzureKeyVault@2
             inputs:
